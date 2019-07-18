@@ -11,12 +11,12 @@
       repository.push(item);
     }
 
-    function loadList() {
-      return $.ajax(apiUrl, {datatype: 'json'}).then(function(item) {
-        $.each(item.results, function(index, item) {
+    function loadList(item) {
+      return $.ajax(apiUrl, {datatype: 'json'}).then(function(res) {
+        $.each(res.results, function() {
           var pokemon = {
-            name: item.name,
-            detailsUrl: item.url
+            name: res.name,
+            detailsUrl: res.url
           }
           add(pokemon)
 
@@ -34,7 +34,16 @@
       res.types.forEach(function(e) {
         item.types.push(' ' + e.type.name);
         return item.types;
-    })
+      });
+    }).catch(function (e) {
+      console.error(e)
+    });
 
+
+    return {
+      add: add,
+      getAll: getAll,
+
+    }
   });
 }) ();
