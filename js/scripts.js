@@ -41,11 +41,21 @@
       });
     }
 
+    function addListItem(pokemon) {
+      var listItem = $'('<button/>', {
+        'class': 'detailsButton';
+        'text': pokemon.name;
+      }).on('click', function(e) {
+        showDetails();
+      });
+    }
+
     return {
       add: add,
       getAll: getAll,
       loadList: loadList,
-      loadDetails: loadDetails
+      loadDetails: loadDetails,
+      addListItem: addListItem,
     }
   });
 }) ();
