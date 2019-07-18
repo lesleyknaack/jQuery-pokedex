@@ -42,13 +42,35 @@
     }
 
     function addListItem(pokemon) {
-      var listItem = $'('<button/>', {
-        'class': 'detailsButton';
-        'text': pokemon.name;
+      var listItem = $('<button/>', {
+        'class': 'detailsButton',
+        'text': pokemon.name,
       }).on('click', function(e) {
         showDetails();
       });
     }
+
+    function showDetails(pokemon) {
+      pokemonRepository.loadDetails(item).then(function () {
+        var modal = $('.pokemon-modal');
+        var name = $('<h2></h2>').text(pokemon.name);
+        var height = $('<p class="pokemon-height"></p>').text('Height: ' + pokemon.height);
+        var types = $('<p class="pokemon-types"></p>').text('Types: ' + pokemon.types);
+        var image = $('<img class="pokemon-image">').attr('src', pokemon.imageUrl);
+
+        modal.append(image)
+        modal.append(name)
+        modal.append(height)
+        modal.append(types)
+      });
+    }
+
+    pokemonRepository.loadList().then(function () {
+      var pokemons = pokemonRepository.getAll();
+      $.each(pokemons, function(index, pokemon){
+        addListItem(pokemon);
+      });
+    });
 
     return {
       add: add,
@@ -56,6 +78,7 @@
       loadList: loadList,
       loadDetails: loadDetails,
       addListItem: addListItem,
+      showDetails: showDetails
     }
   });
 }) ();
