@@ -26,23 +26,25 @@
       });
     }
 
-    var url = detailsUrl;
-    return $.ajax(detailsUrl, {datatype: 'json'}).then(function(details) {
-      item.imgUrl = details.sprites.front_default,
-      item.height = details.height,
-      item.types = [];
-      res.types.forEach(function(e) {
-        item.types.push(' ' + e.type.name);
-        return item.types;
+    function loadDetails(item) {
+      var url = detailsUrl;
+      return $.ajax(detailsUrl, {datatype: 'json'}).then(function(details) {
+        item.imgUrl = details.sprites.front_default,
+        item.height = details.height,
+        item.types = [];
+        res.types.forEach(function(e) {
+          item.types.push(' ' + e.type.name);
+          return item.types;
+        });
+      }).catch(function (e) {
+        console.error(e)
       });
-    }).catch(function (e) {
-      console.error(e)
-    });
-
+    }
 
     return {
       add: add,
       getAll: getAll,
+      loadList: loadList,
 
     }
   });
