@@ -27,8 +27,8 @@
     }
 
     function loadDetails(item) {
-      var url = detailsUrl;
-      return $.ajax(detailsUrl, {datatype: 'json'}).then(function(details) {
+      var url = item.detailsUrl;
+      return $.ajax(url).then(function(details) {
         item.imgUrl = details.sprites.front_default,
         item.height = details.height,
         item.types = [];
@@ -45,9 +45,7 @@
       add: add,
       getAll: getAll,
       loadList: loadList,
-      loadDetails: loadDetails,
-      
-
+      loadDetails: loadDetails
     }
   });
 }) ();
