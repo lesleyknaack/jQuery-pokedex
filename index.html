@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head> <!--header-->
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Simple jQuery App</title>
+    <title>Simple jQuery Pokedex</title>
   </head>
+
+
   <body>
-    <div>
-      <h1>Pokedex</h1>
-    </div>
+
+    <header>
+      <nav class="navbar fixed-top navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="#">Pokedex</a>
+      </nav>
+    </header>
+
     <ul class=item-list></ul>
-    <div class=pokemon-modal id=modal-container></div>
+
+    <!--Modal-->
+    <div class="modal" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" id="exampleModalLabel">
+          <div class="modal-header">
+            <h4 class="modal-title" id="pokemon-name"></h4>
+          </div>
+          <div class="modal-body" id="pokemon-details"></div>
+          <div class="modal-body" id="pokemon-details2"></div>
+          <div class="modal-body" id="pokemon-image"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
