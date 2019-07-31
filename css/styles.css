@@ -12,14 +12,17 @@
 
 .btn-secondary {
   background-color: #ACACFE;
+  color: #000;
 }
 
 .btn:hover {
   background-color: #A8B0C2;
+  color: #000;
 }
 
 .navbar {
   background-color: #ffb2b2;
+  color: #000;
 }
 
 .item-list {
