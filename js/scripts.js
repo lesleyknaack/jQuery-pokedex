@@ -14,9 +14,9 @@ var pokemonRepository = (function () {
 
 
   function addListItem(pokemon) {
-    var $element = ('.item-list');
-    var newList = ('<ul class="item-list_item"></ul>');
-    var pokeBtn = ('<button type="button" class="btn btn-primary pokemon-button" data-toggle="modal" data-target="#modal-container">' + pokemon.name + '</button>');
+    var $element = $('.item-list');
+    var newList = $('<ul class="item-list_item"></ul>');
+    var pokeBtn = $('<button type="button" class="btn btn-primary pokemon-button" data-toggle="modal" data-target="#modal-container">' + pokemon.name + '</button>');
     newList.append(pokeBtn);
     $element.append(newList);
 
@@ -28,22 +28,22 @@ var pokemonRepository = (function () {
 
   function showDetails(item) {
       loadDetails(item).then(function () {
-        var $name = ('<h2>' + item.name + '</h2>');
-        var $height = ('<p class="pokemon-height">' + 'Height: '+ item.height + '</p>');
-        var $types = ('<p class="pokemon-types">' + 'Type(s): ' + item.types + '</p>');
-        var $image = ('<img class="pokemon-image img-fluid">').attr('src', item.imgUrl);
+        var $name = $('<h2>' + item.name + '</h2>');
+        var $height = $('<p class="pokemon-height">' + 'Height: ' + item.height + '</p>');
+        var $types = $('<p class="pokemon-types">' + 'Type(s): ' + item.types + '</p>');
+        var $image = $('<img class="pokemon-image img-fluid">').attr('src', item.imgUrl);
 
-        ('#pokemon-name').html($name);
-        ('#pokemon-details').html($height);
-        ('#pokemon-details2').html($types);
-        ('#pokemon-image').html($image);
-        ('#modal-container').modal('show');
+        $('#pokemon-name').html($name);
+        $('#pokemon-details').html($height);
+        $('#pokemon-details2').html($types);
+        $('#pokemon-image').html($image);
+        $('#modal-container').modal('show');
 
       });
     }
 
 
-  function loadList(item) {
+  function loadList() {
     return $.ajax(apiUrl, {datatype: 'json'}).then(function(res) {
       $.each(res.results, function(index, data) {
         var pokemon = {
