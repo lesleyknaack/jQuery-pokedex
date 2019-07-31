@@ -1,28 +1,30 @@
 .pokemon-button  {
-  border: 1px dotted black;
+  border: 1px solid black;
   font-family: inherit;
-  background-color: #E1E2E1;
+  background-color: yellow;
   color: #000;
   text-decoration: none;
   padding: 10px;
   text-align: center;
   text-transform: capitalize;
+  transition-duration: 0.5s;
 }
 
-.close-btn {
-  border: 2px solid black;
-  font-family: inherit;
-  background-color: #E4CB37;
-  color: #000;
-  padding: 10px;
-  height: 75px;
-  width: 200px;
-  text-align: center;
-  text-transform: capitalize;
+.btn-secondary {
+  background-color: #ACACFE;
+}
+
+.btn:hover {
+  background-color: #A8B0C2;
+}
+
+.navbar {
+  background-color: #ffb2b2;
 }
 
 .item-list {
   padding-left: 0px;
+  padding-top: 60px;
 }
 
 .item-list_item {
@@ -30,51 +32,25 @@
   text-transform: capitalize;
 }
 
-.pokemon-modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: yellow;
-  padding: 15px;
-  width: 100%;
-  max-width: 700px;
-  text-align: center;
-}
-
-#modal-container {
-  display: none;
-}
 
 .pokemon-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  height: auto;
+  width: auto;
 }
 
-#modal-container.is-visible {
-  position: fixed;
-  padding: 40px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 700px;
-  max-height: 700px;
-  background: yellow;
-  display: block;
-  /* to show it above other content */
-  z-index: 999;
-  /* to allow scrolling if the screen is not high enough*/
-  overflow: auto;
-  /* this is used to center the modal */
+.modal-title {
   text-align: center;
 }
 
-h1 {
-  text-transform: capitalize;
+.modal-body {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 h2 {
   text-transform: capitalize;
